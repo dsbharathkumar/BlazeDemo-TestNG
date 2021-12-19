@@ -2,13 +2,12 @@ package Blazedemo.librarymethods;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
 public class DataHandlers {
 
-	public static String getProperty(String fileName, String key) throws IOException {
+	public static String getProperty(String fileName, String key) {
 		File f = new File(fileName);
 		Properties prop = null;
 		String value = null;
@@ -17,7 +16,7 @@ public class DataHandlers {
 			prop = new Properties();
 			prop.load(fis);
 			value = prop.getProperty(key);
-		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return value;

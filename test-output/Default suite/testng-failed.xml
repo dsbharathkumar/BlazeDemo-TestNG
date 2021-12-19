@@ -5,7 +5,6 @@
     <classes>
       <class name="Blazedemo.blazedemo.testcases.Booking">
         <methods>
-          <include name="verifyTitleOfThePage"/>
           <include name="fillReservationForm"/>
           <include name="afterTest"/>
           <include name="submitFindFlights"/>
