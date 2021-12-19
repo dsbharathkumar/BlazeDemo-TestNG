@@ -2,17 +2,16 @@ package Blazedemo.blazedemo.testcases;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Blazedemo.baseclass.BaseClass;
 import Blazedemo.librarymethods.DataHandlers;
 
+@Listeners(utils.Listeners.class)
 public class Booking extends BaseClass{
-	
-  private WebDriver driver;
 	
   @Test(priority = 0)
   public void verifyTitleOfThePage() throws IOException {
@@ -59,6 +58,7 @@ public class Booking extends BaseClass{
   public void assertConfirmationId() throws IOException {
 	  WebElement element = getElement(driver, Locators.xpath,  DataHandlers.getProperty("object_repository/objectProperties.properties", "fetchConfirmationId"));
 	  String confirmationId = element.getText().trim();
+	  System.out.println("Confirmation id is generated and printed as "+confirmationId);
 	  Assert.assertTrue(confirmationId != null, " Confirmation id is generated and printed as "+confirmationId);
   }
   
